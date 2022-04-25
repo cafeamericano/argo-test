@@ -3,8 +3,7 @@ kind: Deployment
 metadata:
   name: appsbymatthew-ui
 spec:
-  minReplicas: 2
-  maxReplicas: 3
+  replicas: 3
   revisionHistoryLimit: 3
   selector:
     matchLabels:
