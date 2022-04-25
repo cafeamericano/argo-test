@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: verdantime-ui
+spec:
+  replicas: 2
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: verdantime-ui
+  template:
+    metadata:
+      labels:
+        app: verdantime-ui
+    spec:
+      imagePullSecrets:
+      - name: mydockerhubsecret
+      containers:
+      - image: mfarmer5102/verdantime-ui:master
+        name: verdantime-ui
+        ports:
+        - containerPort: 80
